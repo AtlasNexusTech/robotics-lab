@@ -1,0 +1,167 @@
+# =============================================================================
+# Robotics Lab .gitignore
+# Covers: Python, ROS 2, PyBullet, Gazebo, Jupyter, OS artifacts
+# =============================================================================
+
+# ── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+*.eggs/
+dist/
+build/
+*.whl
+develop-eggs/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+.python-version
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.env.local
+.env.*.local
+
+# ── Virtual environments / Poetry / pipenv ──────────────────────────────────
+poetry.lock
+poetry.toml.local
+Pipfile.lock
+
+# ── IDE & Editor ───────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+.cursor/
+.trae/
+*.code-workspace
+.DS_Store
+Thumbs.db
+
+# ── Jupyter ────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+.jupyter/
+.local/share/jupyter/
+
+# ── ROS 2 ──────────────────────────────────────────────────────────────────
+build/
+install/
+log/
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+*.pyc
+*.pyo
+__pycache__/
+ament_*/
+colcon_*
+COLCON_IGNORE
+AMENT_IGNORE
+
+# ── PyBullet ───────────────────────────────────────────────────────────────
+*.bullet
+bullet_*/
+pybullet_data/
+pybullet_*.log
+pybullet_*.png
+*.urdf.bak
+
+# ── Gazebo ─────────────────────────────────────────────────────────────────
+*.gazebo
+*.world~
+*.sdf.bak
+*_ign/*/log/
+gazebo_*/
+gzserver-*.log
+gzclient-*.log
+.gazebo/
+.ignition/
+gazebo_cache/
+ogre.log
+*_dare.log
+
+# ── Robot simulation artifacts ─────────────────────────────────────────────
+*.pkl
+*.pt
+*.onnx
+*.engine
+simulation_output/
+rendered/
+frames/
+recordings/
+*.bag
+*.db3
+rosbag2_*/
+*.mcap
+
+# ── ML / Training ──────────────────────────────────────────────────────────
+runs/
+models/*.pth
+models/*.ckpt
+checkpoints/
+wandb/
+mlruns/
+lightning_logs/
+tensorboard/
+*.tflite
+*.h5
+
+# ── Logs & Temp ────────────────────────────────────────────────────────────
+*.log
+*.tmp
+*.temp
+*.cache
+*.swp
+tmp/
+temp/
+.cache/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# ── OS Files ───────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ── Docker ─────────────────────────────────────────────────────────────────
+.docker/
+*.tar
+
+# ── Misc ───────────────────────────────────────────────────────────────────
+*.zip
+*.tar.gz
+*.rar
+credentials.json
+secrets.yaml
+secrets.yml
+*.secret
