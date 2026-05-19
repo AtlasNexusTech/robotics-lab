@@ -1,0 +1,115 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel>=0.41"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robotics-lab"
+version = "0.1.0"
+description = "Robotics simulation, control, and perception experiments"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Atlas Nexus Tech", email = "hello@atlasnexus.tech"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Robotics",
+]
+keywords = [
+    "robotics",
+    "simulation",
+    "reinforcement-learning",
+    "ros2",
+    "pybullet",
+    "gazebo",
+    "control",
+    "perception",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "pybullet>=3.2",
+    "gymnasium>=0.29",
+    "opencv-python>=4.8",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+ros2 = [
+    "rclpy",
+    "sensor_msgs",
+    "geometry_msgs",
+    "std_msgs",
+]
+gazebo = [
+    "gym-gazebo2",
+]
+torch = [
+    "torch>=2.0",
+    "torchvision>=0.15",
+]
+jax = [
+    "jax>=0.4",
+    "jaxlib>=0.4",
+    "flax>=0.7",
+]
+perception = [
+    "open3d>=0.17",
+    "pytorch3d>=0.7",
+    "transformers>=4.30",
+]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "black>=23.0",
+    "ruff>=0.1",
+    "mypy>=1.5",
+    "pre-commit>=3.4",
+    "ipython>=8.14",
+    "jupyter>=1.0",
+]
+all = [
+    "robotics-lab[ros2,gazebo,torch,jax,perception,dev]",
+]
+
+[project.urls]
+Homepage = "https://github.com/AtlasNexusTech/robotics-lab"
+Documentation = "https://github.com/AtlasNexusTech/robotics-lab/tree/main/docs"
+Repository = "https://github.com/AtlasNexusTech/robotics-lab.git"
+Issues = "https://github.com/AtlasNexusTech/robotics-lab/issues"
+
+[tool.setuptools.packages.find]
+include = ["simulation*", "control*", "perception*"]
+exclude = ["tests*", "docs*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "N", "W", "UP", "B", "C4"]
+target-version = "py310"
+
+[tool.ruff.lint.isort]
+known-first-party = ["simulation", "control", "perception"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-v --tb=short --strict-markers"
